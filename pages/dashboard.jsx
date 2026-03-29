@@ -77,6 +77,30 @@ export default function Dashboard() {
     router.push('/login')
   }
 
+  const updateStatus = async (complaintId, newStatus) => {
+    try {
+      const { error } = await supabase
+        .from('complaints')
+        .update({ status: newStatus })
+        .eq('id', complaintId)
+      
+      if (error) throw error
+      
+      // Update local state
+      setComplaints(prev => 
+        prev.map(c => c.id === complaintId ? { ...c, status: newStatus } : c)
+      )
+      
+      // Update selected complaint if open
+      if (selected?.id === complaintId) {
+        setSelected(prev => ({ ...prev, status: newStatus }))
+      }
+    } catch (err) {
+      console.error('Failed to update complaint status:', err.message)
+      alert('Error updating status. Please try again.')
+    }
+  }
+
   const departments = [...new Set(complaints.map(c => c.department).filter(Boolean))]
   const urgencies   = ['Low','Medium','High','Critical']
 

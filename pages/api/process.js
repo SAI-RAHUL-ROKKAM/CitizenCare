@@ -41,25 +41,47 @@ export default async function handler(req, res) {
         'health', 'disease', 'medical', 'clinic', 'vaccination', 'public health', 'epidemic',
         'infection', 'fever', 'dengue', 'malaria', 'cholera', 'food poisoning', 'contamination',
         'hygiene', 'mental health', 'medicine', 'drug', 'pandemic', 'heart', 'cardiac', 'attack', 'chest pain', 'stroke',
+        // Health emergencies & medical conditions
+        'sick', 'sickness', 'fainted', 'fainting', 'faints', 'collapsed', 'collapse', 'unconscious', 'unwell', 'ill', 'illness',
+        'weak', 'weakness', 'dizzy', 'dizziness', 'nausea', 'vomiting', 'seizure', 'convulsion', 'bleeding', 'blood loss',
+        'injury', 'injured', 'wound', 'pain', 'ache', 'cramps', 'sprain', 'fracture', 'broken', 'burn', 'burnt',
+        'allergy', 'allergic', 'asthma', 'cough', 'cold', 'flu', 'pneumonia', 'asphyxiation', 'choking',
+        'poisoning', 'toxin', 'overdose', 'pregnancy', 'pregnant', 'childbirth', 'infant', 'baby', 'newborn',
+        'emergency medical', 'medical emergency', 'health emergency',
         // Hindi
         'अस्पताल', 'डॉक्टर', 'नर्स', 'मरीज', 'एम्बुलेंस', 'ऑपरेशन', 'आईसीयू', 'फार्मेसी', 'खून',
         'स्वास्थ्य', 'बीमारी', 'बुखार', 'डेंगू', 'मलेरिया', 'टीकाकरण', 'टीका', 'संक्रमण', 'चिकित्सा',
         'दवाई', 'दवा', 'महामारी', 'खांसी', 'जुकाम', 'उल्टी', 'दस्त', 'विषाक्तता',
+        // Health conditions in Hindi
+        'बीमार', 'बेहोश', 'मूर्छित', 'मूर्छा', 'कमजोर', 'कमजोरी', 'चक्कर', 'दर्द', 'ऐंठन', 'घाव',
+        'जलना', 'जली', 'दुर्घटना', 'चोट', 'खून बहना', 'खून की कमी', 'एलर्जी', 'दम घुटना', 'जहर',
+        'गर्भावस्था', 'प्रसव', 'शिशु', 'नवजात', 'चिकित्सा आपातकाल',
         // Telugu
         'ఆసుపత్రి', 'డాక్టర్', 'నర్సు', 'రోగి', 'అంబులెన్స్', 'శస్త్రచికిత్స',
         'ఆరోగ్యం', 'వ్యాధి', 'జ్వరం', 'డెంగ్యూ', 'మలేరియా', 'టీకా', 'అంటువ్యాధి', 'మందులు',
+        // Health conditions in Telugu
+        'అనారోగ్య', 'విలీనం', 'తెలివి లేనిది', 'బలహీనత', 'తిరుగుళ్ళు', 'వాంతి', 'గాయం', 'నొప్పి',
+        'ఎలర్జీ', ఘటన', 'విష',
         // Tamil
         'மருத்துவமனை', 'மருத்துவர்', 'செவிலியர்', 'நோயாளி', 'அம்புலன்ஸ்',
         'சுகாதாரம்', 'நோய்', 'காய்ச்சல்', 'டெங்கு', 'மலேரியா', 'தடுப்பூசி', 'தொற்று', 'மருந்து',
+        // Health conditions in Tamil
+        'நோய்', 'மயக்கம்', 'பலவீனம்', 'மேల்சுழற்சி', 'வாந்தி', 'காயம்', 'வலி', 'ஒவ்வாமை', 'நஞ்சு',
         // Kannada
         'ಆಸ್ಪತ್ರೆ', 'ವೈದ್ಯ', 'ನರ್ಸ್', 'ರೋಗಿ', 'ಆಂಬುಲೆನ್ಸ್',
         'ಆರೋಗ್ಯ', 'ರೋಗ', 'ಜ್ವರ', 'ಡೆಂಗ್ಯೂ', 'ಮಲೇರಿಯಾ', 'ಲಸಿಕೆ', 'ಸೋಂಕು',
+        // Health conditions in Kannada
+        'ಅನಾರೋಗ್ಯ', 'ಸುಜ್ನ', 'ಶಕ್ತಿಹೀನತೆ', 'ತಿರಗಾಲು', 'ಅಸುವು', 'ಗಾಯ', 'ನೋವು', 'ಅಲರ್ಜಿ', 'ವಿಷ',
         // Marathi
         'रुग्णालय', 'डॉक्टर', 'परिचारिका', 'रुग्ण', 'रुग्णवाहिका',
         'आरोग्य', 'आजार', 'ताप', 'डेंग्यू', 'मलेरिया', 'लसीकरण', 'संसर्ग',
+        // Health conditions in Marathi
+        'आजारी', 'बेहोश', 'कमजोरी', 'आतापत्ता', 'उलटी', 'गोलमेल', 'दुखापेच', 'ऍलर्जी', 'विष',
         // Bengali
         'হাসপাতাল', 'ডাক্তার', 'নার্স', 'রোগী', 'অ্যাম্বুলেন্স',
-        'স্বাস্থ্য', 'রোগ', 'জ্বর', 'ডেঙ্গু', 'ম্যালেরিয়া', 'টিকা', 'সংক্রমণ'
+        'স্বাস্থ্য', 'রোগ', 'জ্বর', 'ডেঙ্গু', 'ম্যালেরিয়া', 'টিকা', 'সংক্রমণ',
+        // Health conditions in Bengali
+        'অসুস্থ', 'অজ্ঞান', 'বেহোশ', 'দুর্বলতা', 'মাথাঘোরা', 'বমি', 'আঘাত', 'ব্যথা', 'অ্যালার্জি', 'বিষ'
       ],
       Police: [
         // English
@@ -352,13 +374,15 @@ export default async function handler(req, res) {
     let urgency = scoreCategory(urgencyKeywords, 'Low')
 
     // Prefer Hospital for clear medical emergencies
-    if (/heart attack|cardiac arrest|chest pain|stroke|severe bleeding|medical emergency|unconscious|life-threatening/i.test(combinedText)) {
+    if (/heart attack|cardiac arrest|chest pain|stroke|severe bleeding|medical emergency|unconscious|life-threatening|sick|sickness|fainted|fainting|collapsed|collapse|injury|injured|medicine|hospital|doctor|health|disease|bleeding|wound|pain|emergency|seizure|convulsion|unwell|illness|ill|weak|weakness|dizzy|vomiting|poisoning|बीमार|मूर्छित|चोट|बीमारी|चिकित्सा|అనారోగ్య|విలీనం|బలహీనత|నొప్పి|நோய்|மயக్கம்|வலி|ಅನಾರೋಗ್ಯ|ಸುಜ್ನ|ನೋವು|আজারী|অজ্ঞান|ব্যথা/i.test(combinedText)) {
       department = 'Hospital'
-      urgency = 'Critical'
+      if (/(sick|fainted|fainting|collapsed|unconscious|bleeding|wound|injury|seizure|poison|बीमार|मूर्छित|चोट|విలీనం|బలహీనత|मயक्कम|வலி|ಸುಜ್ನ|ಆಸ್‌ಪತ್ರೆ|অজ্ঞান)/i.test(combinedText)) {
+        urgency = 'High'
+      }
     }
 
     // Urgency overrides
-    if (/accident|collapsed|severe|दुर्घटना|गंभीर/i.test(combinedText)) {
+    if (/(accident|collapsed|collapse|severe|fainted|fainting|unconscious|critical|emergency|दुर्घटना|गंभीर|मूर्छित|విలీనం)/i.test(combinedText)) {
       urgency = 'High'
     }
 
